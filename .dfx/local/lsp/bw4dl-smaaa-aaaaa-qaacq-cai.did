@@ -1,0 +1,11 @@
+service : {
+  getServiceDetails : (text) -> (
+      record {
+        serviceCode : text;
+        serviceDate : text;
+        carLicensePlate : text;
+        servicedBy : text;
+      },
+    ) query;
+  storeServiceDetails : (text, text) -> (text);
+}

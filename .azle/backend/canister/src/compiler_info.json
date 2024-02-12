@@ -1,0 +1,1 @@
+{"canister_methods":{"queries":[{"name":"getServiceDetails","composite":false}],"updates":[{"name":"storeServiceDetails"}],"callbacks":{}},"env_vars":[]}
