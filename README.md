@@ -1,56 +1,53 @@
-# Azle Hello World
+# Service tracker
 
-Azle helps you to build secure decentralized/replicated servers in TypeScript or JavaScript. The current replication factor is [13-40 times](https://dashboard.internetcomputer.org/subnets).
+The Service Tracker is a canister-based application that allows users to store and retrieve service details for vehicles or any machine that requires regular servising. It provides the functionality to store service records, generate unique service codes, and retrieve service details based on the service code.
 
-For more documentation please see [The Azle Book](https://demergent-labs.github.io/azle/).
+## Features
+1. **Store Service Details:** Users can store service details including the car license plate, service date, and service provider's information.
+2. **Generate Unique Service Code:** The application automatically generates a unique service code for each service record.
+3. **Retrieve Service Details:** Users can retrieve service details based on the unique service code.
+   
+## Getting started
+To set up the Service Tracker project, follow these steps:
 
-## Installation
+1. Install the DFINITY Canister SDK and the Internet Computer command-line interface (DFX) from the official site https://internetcomputer.org/docs/current/developer-docs/getting-started/install/
+2. Clone the Service Tracker project repository from GitHub.
+   git clone https://github.com/markmatakili2/Service-tracker.git
+   cd Service-tracker
+3. Start the local canister execution environment using DFX.
+   dfx start --background --clean
+4. Open a new command line and deploy the canister.
+    dfx deploy
+5. Access the Candid UI to interact with the service tracker canister.
 
-Run the following commands individually following the instructions in the comments:
+## Usage
 
-```bash
-npx azle new hello_world
-cd hello_world
+### Storing Service Details
 
-# Ubuntu build dependencies
-sudo apt install clang
-sudo apt install build-essential
-sudo apt install libssl-dev
-sudo apt install pkg-config
+To store service details, follow these steps:
 
-# Mac build dependencies
-xcode-select --install
-brew install llvm
+1. Navigate to the Candid UI using the provided URL.
+2. Enter the car license plate and service provider details in the input fields.
+3. Click the "Call" button to store the service details.
 
-# The dfx command line tools for managing ICP applications
-DFX_VERSION=0.16.1 sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"
-dfx start --clean --host 127.0.0.1:8000
+### Retrieving Service Details
 
-# In a separate terminal in the hello_world directory
-npm install
-dfx deploy
+To retrieve service details, follow these steps:
 
-# If you have problems deploying see https://demergent-labs.github.io/azle/deployment.html#common-deployment-issues
+1. Navigate to the Candid UI using the provided URL.
+2. Enter the unique service code in the input field.
+3. Click the "Query" button to retrieve the service details based on the unique service code.
 
-# Obtain your application's [canisterId]
-dfx canister id backend
+## Canister Details
 
-# View your frontend in a web browser at http://[canisterId].localhost:8000
+- **storeServiceDetails**: Update method to store service details and produce a unique service code.
+- **getServiceDetails**: Query method to retrieve service details based on the service code.
 
-# Communicate with your canister using any HTTP client library
-curl http://[canisterId].localhost:8000/db
-curl -X POST -H "Content-Type: application/json" -d "{ \"hello\": \"world\" }" http://[canisterId].localhost:8000/db/update
-```
+## Contributors
 
-## Examples
+- Mark Matakili (@markmatakili2)
 
-There are many Azle examples in the [examples directory](bkyz2-fmaaa-aaaaa-qaaaq-cai). We recommend starting with the following:
 
--   [apollo_server](https://github.com/demergent-labs/azle/tree/main/examples/apollo_server)
--   [ethers](https://github.com/demergent-labs/azle/tree/main/examples/ethers)
--   [express](https://github.com/demergent-labs/azle/tree/main/examples/express)
--   [fs](https://github.com/demergent-labs/azle/tree/main/examples/fs)
--   [hello_world](https://github.com/demergent-labs/azle/tree/main/examples/hello_world)
--   [ic_evm_rpc](https://github.com/demergent-labs/azle/tree/main/examples/ic_evm_rpc)
--   [sqlite](https://github.com/demergent-labs/azle/tree/main/examples/sqlite)
--   [web_assembly](https://github.com/demergent-labs/azle/tree/main/examples/web_assembly)
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
