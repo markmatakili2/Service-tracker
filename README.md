@@ -12,12 +12,19 @@ To set up the Service Tracker project, follow these steps:
 
 1. Install the DFINITY Canister SDK and the Internet Computer command-line interface (DFX) from the official site https://internetcomputer.org/docs/current/developer-docs/getting-started/install/
 2. Clone the Service Tracker project repository from GitHub.
+   
    git clone https://github.com/markmatakili2/Service-tracker.git
+   
    cd Service-tracker
+   
 3. Start the local canister execution environment using DFX.
+   
    dfx start --background --clean
+   
 4. Open a new command line and deploy the canister.
+ 
     dfx deploy
+   
 5. Access the Candid UI to interact with the service tracker canister.
 
 ## Usage
