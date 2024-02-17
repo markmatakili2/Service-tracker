@@ -10,14 +10,14 @@ const ServiceDetails = Record({
 });
 
 // Global variable to store service details
-let serviceRecords: typeof ServiceDetails[] = [];
+let serviceRecords: ServiceDetails[] = [];
 
 export default Canister({
     // Update method to store service details and produce a unique service code
-    storeServiceDetails: update([text, text], text, (carLicensePlate, servicedBy) => {
+    storeServiceDetails: update([text, Principal], text, (carLicensePlate, servicedBy) => {
         const serviceCode = generateUniqueCode();
         const currentDate = getCurrentDate(); // Generate a unique service code
-        const newServiceDetails: typeof ServiceDetails = {
+        const newServiceDetails: ServiceDetails = {
             serviceCode,
             carLicensePlate,
             serviceDate: currentDate,
@@ -32,7 +32,7 @@ export default Canister({
     getServiceDetails: query([text], (ServiceDetails), (serviceCode: text) => {
         const details = serviceRecords.find((record) => record.serviceCode === serviceCode);
         if (details) {
-            return details as typeof ServiceDetails;
+            return details;
         } else {
             throw new Error("Service details not found for the provided code");
         }
